@@ -17,9 +17,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-
-    body: Container(
+      body: Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -54,29 +52,66 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
 
-            SizedBox(height: 100),
+            SizedBox(height: 60),
 
             SocialLoginButton(
-                name: '카카오로 시작하기',
+                name: '카카오로 로그인',
                 backgroundColor: Colors.yellow,
                 textColor: Colors.black,
                 context: context
             ),
+
             SocialLoginButton(
-                name: 'Apple로 계속하기',
+                name: 'Apple로 로그인',
                 backgroundColor: Colors.black,
                 textColor: Colors.white,
                 context: context
             ),
+
             SocialLoginButton(
-                name: '이메일로 시작하기',
+                name: '구글로 로그인',
+                backgroundColor: Colors.white,
+                textColor: Colors.black,
+                context: context
+            ),
+
+            Container(
+              height: 30,
+              margin: EdgeInsets.only(top: 20, bottom: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  buildSolidLine(context),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 20, top: 1),
+                    child: Frame.myText(text: 'or', color: Colors.grey),
+                  ),
+                  buildSolidLine(context),
+                ],
+              ),
+            ),
+
+            SocialLoginButton(
+                name: '이메일로 로그인',
                 backgroundColor: Colors.white70,
-                textColor: Colors.black38,
+                textColor: Colors.black,
                 context: context
             ),
         ]
       )
     ),
+    );
+  }
+
+  buildSolidLine(BuildContext context){
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+      child: Container(
+        width: MediaQuery.of(context).size.width / 3,
+        height: 1.0,
+        color: Colors.grey,
+      ),
     );
   }
 }
